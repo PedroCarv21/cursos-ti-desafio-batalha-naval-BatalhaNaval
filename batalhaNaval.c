@@ -36,5 +36,57 @@ int main() {
     // 1 1 1 1 1
     // 0 0 1 0 0
 
+    int tabuleiro[10][10] = {};
+
+    char letras[10] = {};
+
+    int valor_ascii = 65;
+    for (int x = 0; x < 10; x++){
+        letras[x] = (char) valor_ascii;
+        valor_ascii++;
+    }
+
+    printf("   ");
+    for (int x = 0; x < 10; x++){
+        printf("%c ", letras[x]);
+    }
+    printf("\n");
+
+    for (int x = 0; x < 10; x++){
+        for (int y = 0; y < 10; y++){
+            if (x == 2){
+                if (y == 3 || y == 4 || y == 5){
+                    tabuleiro[x][y] = 3;
+                }
+                else{
+                    tabuleiro[x][y] = 0;
+                }
+            }
+            else if (y == 7){
+                if (x == 5 || x == 6 || x == 7){
+                    tabuleiro[x][y] = 3;
+                }
+                else{
+                    tabuleiro[x][y] = 0;
+                }
+            }
+            else{
+                tabuleiro[x][y] = 0;
+            }
+        }   
+    }
+    char *espaco = "  ";
+    for (int x = 0; x < 10; x++){
+        printf("%d", x + 1);
+        if ((x + 1) == 10){
+            espaco = " ";
+        }
+        printf("%s", espaco);
+        for (int y = 0; y < 10; y++){
+            printf("%d ", tabuleiro[x][y]);
+        }   
+        printf("\n");
+    }
+
     return 0;
 }
